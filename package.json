@@ -1,0 +1,23 @@
+{
+  "name": "pipefyreports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soucanabisdev/pipefyReports.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soucanabisdev/pipefyReports/issues"
+  },
+  "homepage": "https://github.com/soucanabisdev/pipefyReports#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "https": "^1.0.0"
+  }
+}
