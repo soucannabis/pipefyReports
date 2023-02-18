@@ -24,9 +24,6 @@ temp.forEach((res) => {
 })
 }
 
-// Printing data
-console.log(data)
-
 return data
 
 })
