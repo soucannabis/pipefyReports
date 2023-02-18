@@ -6,10 +6,12 @@ app.use(express.urlencoded({
   extended: true
 }));
 
+
+
 app.get('/', async (req, res) => {
 
-
-const file = reader.readFile('pedidos.xlsx')
+  
+const file = reader.readFile('relatorio.xlsx')
 
 let data = []
 
@@ -23,6 +25,8 @@ temp.forEach((res) => {
 	data.push(res)
 })
 }
+
+  res.send(data)
 
 return data
 
