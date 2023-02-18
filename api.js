@@ -10,25 +10,9 @@ app.use(express.urlencoded({
 
 app.get('/', async (req, res) => {
 
-  
-const file = reader.readFile('relatorio.xlsx')
+const file = `${__dirname}/relatorio.xlsx`;
+res.download(file)
 
-let data = []
-
-const sheets = file.SheetNames
-
-for(let i = 0; i < sheets.length; i++)
-{
-const temp = reader.utils.sheet_to_json(
-		file.Sheets[file.SheetNames[i]])
-temp.forEach((res) => {
-	data.push(res)
-})
-}
-
-  res.send(data)
-
-return data
 
 })
 
