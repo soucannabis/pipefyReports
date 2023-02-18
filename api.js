@@ -21,7 +21,7 @@ https.get("https://app-storage-service.pipefy.com/v1/signed/orgs/0ec0a956-43d7-4
 
 
 
-app.get('/', async (req, res) => {
+app.get('/xx', async (req, res) => {
 
 const file = `${__dirname}/relatorio.xlsx`;
 res.download(file)
