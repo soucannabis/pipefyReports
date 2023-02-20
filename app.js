@@ -12,9 +12,9 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 async function app (){
 
-  var idReport = 304168639
+  var idReport = ''
 
- /*optionsPipe = {
+ optionsPipe = {
       method: 'POST',
       headers: {
           'accept': 'application/json',
@@ -36,7 +36,7 @@ async function app (){
       console.log(error);
     });
 
-    console.log(idReport)*/
+    console.log(idReport)
 
     optionsPipe = {
       method: 'POST',
