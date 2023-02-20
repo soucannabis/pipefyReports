@@ -36,8 +36,6 @@ async function app (){
       console.log(error);
     });
 
-    console.log(idReport)
-
     optionsPipe = {
       method: 'POST',
       headers: {
