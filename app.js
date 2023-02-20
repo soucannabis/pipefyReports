@@ -8,11 +8,10 @@ api.use(express.urlencoded({
 }));
 const https = require('https');
 const fs = require('fs');
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-async function app (){
-
-  var idReport = ''
+api.get('/novo-relatorio', async (req, res) => {
+ 
+  var idReport = 304173098
 
  optionsPipe = {
       method: 'POST',
@@ -35,6 +34,8 @@ async function app (){
     .catch(function (error) {
       console.log(error);
     });
+    console.log(idReport)
+
 
     optionsPipe = {
       method: 'POST',
@@ -63,20 +64,20 @@ async function app (){
     response.pipe(file);
 
     file.on("finish", () => {
-      delay(6000)
         file.close();
         console.log("Download Completed");
     });
   });
-}
+
+  res.send("Novo relatório emitido! Atualize a fonte de dados")
+
+
+})
 
   api.get('/', async (req, res) => {
 
     const xlsx = `${__dirname}/relatorio.xlsx`;
     res.download(xlsx)
-    await delay(6000)
-
-    await app()
 
   })
 
