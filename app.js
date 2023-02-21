@@ -11,7 +11,8 @@ const fs = require('fs');
 
 api.get('/novo-relatorio', async (req, res) => {
  
-  var idReport = 304173098
+  var idReport = ''
+  var urlReport = ''
 
  optionsPipe = {
       method: 'POST',
@@ -21,7 +22,7 @@ api.get('/novo-relatorio', async (req, res) => {
           'Content-Type': 'application/json'
       },
       data: JSON.stringify({
-          query: 'mutation { exportPipeReport(input: {pipeId: 301587647, pipeReportId: 300369040}) { pipeReportExport { id fileURL report { id } } } }'
+          query: 'mutation { exportPipeReport(input: {pipeId: 301738151, pipeReportId: 300422243}) { pipeReportExport { id fileURL report { id } } } }'
 
       })
   };
@@ -52,26 +53,25 @@ api.get('/novo-relatorio', async (req, res) => {
 
   await axios('https://api.pipefy.com/graphql', optionsPipe)
     .then(function (response) {
+
       urlReport = response.data.data.pipeReportExport.fileURL
-      return urlReport
+
+      file = fs.createWriteStream("relatorio.xlsx");
+   
+      https.get(urlReport,  function(response) {
+        response.pipe(file);
+
+        file.on("finish", () => {
+            file.close();
+            console.log("Download Completed");
+        });
+      });
     })
     .catch(function (error) {
       console.log(error);
     });
 
-    file = fs.createWriteStream("relatorio.xlsx");
-    await https.get(urlReport, function(response) {
-    response.pipe(file);
-
-    file.on("finish", () => {
-        file.close();
-        console.log("Download Completed");
-    });
-  });
-
-  res.send("Novo relatório emitido! Atualize a fonte de dados")
-
-
+  res.send("Novo relatório emitido! Atualize a fonte de dados: "+urlReport)
 })
 
   api.get('/', async (req, res) => {
