@@ -71,7 +71,7 @@ api.get('/novo-relatorio', async (req, res) => {
       console.log(error);
     });
 
-  res.send("Novo relatório emitido! Atualize a fonte de dados: "+urlReport)
+  res.send("<h4>Novo relatório emitido! Atualize a fonte de dados: <a href='"+urlReport+"'>Baixar o arquivo original</a></h4></br>"+urlReport)
 })
 
   api.get('/', async (req, res) => {
