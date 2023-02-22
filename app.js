@@ -22,7 +22,7 @@ api.get('/novo-relatorio', async (req, res) => {
           'Content-Type': 'application/json'
       },
       data: JSON.stringify({
-          query: 'mutation { exportPipeReport(input: {pipeId: 301738151, pipeReportId: 300422243}) { pipeReportExport { id fileURL report { id } } } }'
+          query: 'mutation { exportPipeReport(input: {pipeId: 301587647, pipeReportId: 300369040}) { pipeReportExport { id fileURL report { id } } } }'
 
       })
   };
