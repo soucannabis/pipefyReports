@@ -37,7 +37,7 @@ api.post('/novo-relatorio', async (req, res) => {
     .catch(function (error) {
       console.log(error);
     });
-    console.log(idReport)
+
 
     await delay(10000)
  
@@ -77,6 +77,8 @@ api.post('/novo-relatorio', async (req, res) => {
             console.log()
         });
       });
+
+      res.status(200)
 })
 
   api.get('/', async (req, res) => {
