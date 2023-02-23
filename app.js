@@ -74,7 +74,9 @@ api.post('/novo-relatorio', async (req, res) => {
 
         file.on("finish", () => {
             file.close();
-            console.log("Download Completed");
+            console.log("NOVO RELATÓRIO CRIADO!   - "+idReport+" - "+req.body.hour+":"+req.body.minute+"h");
+            console.log(urlReport)
+            console.log()
         });
       });
 
