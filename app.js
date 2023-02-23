@@ -11,7 +11,7 @@ const fs = require('fs');
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-api.post('/novo-relatorio', async (req, res) => {
+api.get('/novo-relatorio', async (req, res) => {
  
   var idReport = ''
   var urlReport = ''
