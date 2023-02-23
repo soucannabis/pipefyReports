@@ -78,7 +78,7 @@ api.post('/novo-relatorio', async (req, res) => {
         });
       });
 
-  res.send("Novo relatório emitido! Atualize a fonte de dados")
+  res.send(req.body)
 })
 
   api.get('/', async (req, res) => {
