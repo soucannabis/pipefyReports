@@ -12,8 +12,6 @@ const fs = require('fs');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 api.post('/novo-relatorio', async (req, res) => {
-
-  console.log(req.body)
  
   var idReport = ''
   var urlReport = ''
@@ -79,8 +77,6 @@ api.post('/novo-relatorio', async (req, res) => {
             console.log()
         });
       });
-
-  res.send(req.body)
 })
 
   api.get('/', async (req, res) => {
