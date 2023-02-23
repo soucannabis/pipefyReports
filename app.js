@@ -9,6 +9,8 @@ api.use(express.urlencoded({
 const https = require('https');
 const fs = require('fs');
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
 api.get('/novo-relatorio', async (req, res) => {
  
   var idReport = ''
@@ -37,7 +39,8 @@ api.get('/novo-relatorio', async (req, res) => {
     });
     console.log(idReport)
 
-
+    await delay(10000)
+ 
     optionsPipe = {
       method: 'POST',
       headers: {
@@ -56,7 +59,13 @@ api.get('/novo-relatorio', async (req, res) => {
 
       urlReport = response.data.data.pipeReportExport.fileURL
 
-      file = fs.createWriteStream("relatorio.xlsx");
+      return urlReport
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    file = fs.createWriteStream("relatorio.xlsx");
    
       https.get(urlReport,  function(response) {
         response.pipe(file);
@@ -66,16 +75,12 @@ api.get('/novo-relatorio', async (req, res) => {
             console.log("Download Completed");
         });
       });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
   res.send("<h4>Novo relatório emitido! Atualize a fonte de dados: <a href='"+urlReport+"'>Baixar o arquivo original</a></h4></br>"+urlReport)
 })
 
   api.get('/', async (req, res) => {
-
+    
     const xlsx = `${__dirname}/relatorio.xlsx`;
     res.download(xlsx)
 
