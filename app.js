@@ -78,7 +78,7 @@ api.post('/novo-relatorio', async (req, res) => {
         });
       });
 
-      res.status(200)
+      res.status(200).end()
 })
 
   api.get('/', async (req, res) => {
