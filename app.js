@@ -21,18 +21,6 @@ app.use("/", pipeLiga)
 app.use("/", pipeAssociados)
 app.use("/", pipeServicos)
 
-api.get('/novo-relatorio', async (req, res) => {
- 
- 
-})
-
-  api.get('/', async (req, res) => {
-    
-    const xlsx = `${__dirname}/relatorio.xlsx`;
-    res.download(xlsx)
-
-  })
-
   api.listen(process.env.PORT || 3000, () => {
       console.log('API RUN!');
     });
