@@ -56,7 +56,7 @@ router.post('/novo-relatorio', async (req, res) => {
         console.log(error);
       });
   
-      file = fs.createWriteStream("relatorio.xlsx");
+      file = fs.createWriteStream("relatorio-servicos.xlsx");
      
         https.get(urlReport,  function(response) {
           response.pipe(file);
@@ -75,7 +75,7 @@ router.post('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {    
-    const xlsx = `${__dirname}/relatorio.xlsx`;
+    const xlsx = `${__dirname}/relatorio-servicos.xlsx`;
     res.download(xlsx)
 
 })
