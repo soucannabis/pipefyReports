@@ -2,7 +2,7 @@ const axios = require('axios')
 const express = require("express")
 const router = express.Router()
 
-router.post('/novo-relatorio', async (req, res) => {
+router.get('/novo-relatorio', async (req, res) => {
     var idReport = ''
     var urlReport = ''
     var pipeId = 301738151
