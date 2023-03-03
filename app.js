@@ -16,10 +16,10 @@ const pipeLiga = require("./routes/pipe-pedidos")
 const pipeAssociados = require("./routes/pipe-pedidos")
 const pipeServicos = require("./routes/pipe-pedidos")
 
-app.use("/", pipePedidos)
-app.use("/", pipeLiga)
-app.use("/", pipeAssociados)
-app.use("/", pipeServicos)
+api.use("/", pipePedidos)
+api.use("/", pipeLiga)
+api.use("/", pipeAssociados)
+api.use("/", pipeServicos)
 
   api.listen(process.env.PORT || 3000, () => {
       console.log('API RUN!');
