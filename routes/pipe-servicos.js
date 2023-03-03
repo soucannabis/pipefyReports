@@ -1,6 +1,9 @@
 const axios = require('axios')
 const express = require("express")
 const router = express.Router()
+const fs = require('fs');
+const https = require('https');
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 router.get('/novo-relatorio', async (req, res) => {
     var idReport = ''
