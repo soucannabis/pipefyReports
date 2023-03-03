@@ -78,7 +78,7 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {    
-    const xlsx = `${__dirname}/relatorio-pedidos.xlsx`;
+    const xlsx = `relatorio-pedidos.xlsx`;
     res.download(xlsx)
 
 })
