@@ -7,10 +7,6 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-
 router.get('/novo-relatorio', async (req, res) => {
     var idReport = ''
     var urlReport = ''
@@ -84,7 +80,7 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {   
-  console.log(res.body)
+  console.log(res)
   var archive = "novo_relatorio_"; 
   const xlsx = archive+"xlsx";
    res.download(xlsx)
