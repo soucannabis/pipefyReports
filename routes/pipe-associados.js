@@ -94,6 +94,7 @@ router.get('/database-report', async (req, res) => {
 })
 
 router.get('/pipe-report', async (req, res) => {    
+  console.log(res.body)
   async function app(){
     try{
       process.setMaxListeners(Infinity)
@@ -149,7 +150,7 @@ router.get('/pipe-report', async (req, res) => {
   
           browser.close()
 
-          res.send("OK")
+          res.send("Relatório do database exportado com sucesso!")
           res.status(200)
        
     }
