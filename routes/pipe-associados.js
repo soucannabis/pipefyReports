@@ -96,7 +96,7 @@ router.get('/database-report', async (req, res) => {
 router.get('/pipe-report', async (req, res) => {  
   var date = req.body.date 
   date = date.split("-") 
-  console.log(date[2]+"-"+date[1]+"-"+date[3])
+  console.log(date[1]+"-"+date[0]+"-"+date[2])
   async function app(){
     try{
       process.setMaxListeners(Infinity)
