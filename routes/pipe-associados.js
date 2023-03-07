@@ -154,7 +154,7 @@ router.get('/pipe-report', async (req, res) => {
           var exportButton = await page.$("button[aria-label='Exportar']");
           await exportButton.click()   
           
-          await delay(5000)
+          await delay(10000)
   
           browser.close()
 
