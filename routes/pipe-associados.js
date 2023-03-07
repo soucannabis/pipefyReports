@@ -113,7 +113,7 @@ router.get('/pipe-report', async (req, res) => {
             },
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             ignoreDefaultArgs: ['--disable-extensions'],
-            headless: false,
+            headless: true,
           };
         
         let browser = await puppeteer.launch(options);
@@ -149,7 +149,7 @@ router.get('/pipe-report', async (req, res) => {
   
           await page.goto("https://app.pipefy.com/apollo_databases/301585673")
   
-          await delay(5000)
+          await delay(10000)
   
           var exportButton = await page.$("button[aria-label='Exportar']");
           await exportButton.click()   
