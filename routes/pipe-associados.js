@@ -88,7 +88,7 @@ router.get('/', async (req, res) => {
   if(dia <= 9){dia = "0"+dia}
 
   var date = dia + "-" + mes + "-" + ano
-  const xlsx = "novo_relatório_"+date+".xlsx";
+  const xlsx = "routes/novo_relatório_"+date+".xlsx";
    res.download(xlsx)
 
 })
@@ -113,7 +113,7 @@ router.get('/pipe-report', async (req, res) => {
             },
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             ignoreDefaultArgs: ['--disable-extensions'],
-            headless: true,
+            headless: false,
           };
         
         let browser = await puppeteer.launch(options);
