@@ -80,10 +80,15 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {   
-  var date = req.body.date 
-  date = date.split("-")   
-  var archive = "novo_relatorio_"+date[1]+"-"+date[0]+"-"+date[2]; 
-  const xlsx = archive+".xlsx";
+  var ano = new Date().getFullYear()
+  var mes = new Date().getMonth()
+  mes = mes+1
+  var dia = new Date().getDate()
+  if(mes <= 9){mes = "0"+mes}
+  if(dia <= 9){dia = "0"+dia}
+
+  var date = dia + "-" + mes + "-" + ano
+  const xlsx = "novo_relatorio_"+date+".xlsx";
    res.download(xlsx)
 
 })
@@ -95,6 +100,8 @@ router.get('/database-report', async (req, res) => {
 })
 
 router.get('/pipe-report', async (req, res) => {  
+
+  res.status(200)
  
   async function app(){
     try{
