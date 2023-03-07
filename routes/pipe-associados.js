@@ -83,7 +83,7 @@ router.get('/', async (req, res) => {
   var date = req.body.date 
   date = date.split("-")   
   var archive = "novo_relatorio_"+date[1]+"-"+date[0]+"-"+date[2]; 
-  const xlsx = archive+"xlsx";
+  const xlsx = archive+".xlsx";
    res.download(xlsx)
 
 })
