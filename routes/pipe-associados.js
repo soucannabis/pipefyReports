@@ -113,7 +113,7 @@ router.get('/pipe-report', async (req, res) => {
             },
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             ignoreDefaultArgs: ['--disable-extensions'],
-            headless: true,
+            headless: false,
           };
         
         let browser = await puppeteer.launch(options);
