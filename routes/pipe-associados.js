@@ -6,6 +6,7 @@ const https = require('https');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const puppeteer = require('puppeteer');
 
+
 router.get('/novo-relatorio', async (req, res) => {
     var idReport = ''
     var urlReport = ''
@@ -95,6 +96,7 @@ router.get('/database-report', async (req, res) => {
 router.get('/pipe-report', async (req, res) => {    
   async function app(){
     try{
+      process.setMaxListeners(Infinity)
         let options = {
             defaultViewport: {
               width: 1366,
