@@ -116,11 +116,11 @@ router.get('/pipe-report', async (req, res) => {
         
           await page.goto("https://app.pipefy.com/") 
           await page.waitForSelector(".auth0-lock-submit")   
-          await delay(4000) 
+          await delay(2000) 
           var usernameInput = await page.$("input[name='username']");
           var passwordInput = await page.$("input[name='password']");
   
-          await delay(6000)
+          await delay(3000)
   
           await usernameInput.click();
           await page.keyboard.type("feliperosenek@gmail.com", {
@@ -138,12 +138,12 @@ router.get('/pipe-report', async (req, res) => {
   
           await page.goto("https://app.pipefy.com/apollo_databases/301585673")
   
-          await delay(15000)
+          await delay(5000)
   
           var exportButton = await page.$("button[aria-label='Exportar']");
           await exportButton.click()   
           
-          await delay(15000)
+          await delay(5000)
   
           browser.close()
 
