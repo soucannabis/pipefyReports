@@ -88,7 +88,7 @@ router.get('/', async (req, res) => {
   if(dia <= 9){dia = "0"+dia}
 
   var date = dia + "-" + mes + "-" + ano
-  const xlsx = "novo_relatorio_"+date+".xlsx";
+  const xlsx = "novo_relatório_"+date+".xlsx";
    res.download(xlsx)
 
 })
