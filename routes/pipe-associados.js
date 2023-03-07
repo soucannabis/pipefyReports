@@ -5,6 +5,10 @@ const fs = require('fs');
 const https = require('https');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const puppeteer = require('puppeteer');
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 router.get('/novo-relatorio', async (req, res) => {
