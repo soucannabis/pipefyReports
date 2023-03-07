@@ -94,7 +94,7 @@ router.get('/database-report', async (req, res) => {
 })
 
 router.get('/pipe-report', async (req, res) => {    
-  console.log(res.body)
+  console.log(req.body)
   async function app(){
     try{
       process.setMaxListeners(Infinity)
