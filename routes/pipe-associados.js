@@ -115,6 +115,8 @@ router.get('/pipe-report', async (req, res) => {
             ignoreDefaultArgs: ['--disable-extensions'],
             headless: true,
           };
+
+          console.log("Abrindo Browser")
         
         let browser = await puppeteer.launch(options);
         let page = await browser.newPage();
@@ -124,7 +126,8 @@ router.get('/pipe-report', async (req, res) => {
          behavior: 'allow',
         downloadPath: "/",
         })
-        
+       
+        console.log("Abrindo Pipefy")
           await page.goto("https://app.pipefy.com/") 
           await page.waitForSelector(".auth0-lock-submit")   
           await delay(2000) 
@@ -144,6 +147,8 @@ router.get('/pipe-report', async (req, res) => {
   
           var loginButton = await page.$("button[name='submit']");
           await loginButton.click()
+
+          console.log("Login OK")
   
           await delay(6000)
   
@@ -154,9 +159,14 @@ router.get('/pipe-report', async (req, res) => {
           var exportButton = await page.$("button[aria-label='Exportar']");
           await exportButton.click()   
           
-          await delay(9000)
+          console.log("Baixando relatório")
+          
+          await delay(10000)
   
           browser.close()
+
+          console.log("Download OK")
+          console.log("Browser fechado")
 
           res.send("Relatório do database exportado com sucesso!")
           res.status(200)
