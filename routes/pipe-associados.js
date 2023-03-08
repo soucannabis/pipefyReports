@@ -126,7 +126,7 @@ router.get('/pipe-report', async (req, res) => {
          behavior: 'allow',
         downloadPath: __dirname,
         })
-        console.log(__dirname)
+
         console.log("Abrindo Pipefy")
           await page.goto("https://app.pipefy.com/") 
           await page.waitForSelector(".auth0-lock-submit")   
