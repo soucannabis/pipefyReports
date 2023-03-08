@@ -134,7 +134,7 @@ router.get('/pipe-report', async (req, res) => {
           var usernameInput = await page.$("input[name='username']");
           var passwordInput = await page.$("input[name='password']");
   
-          await delay(3000)
+          await delay(4000)
   
           await usernameInput.click();
           await page.keyboard.type("feliperosenek@gmail.com", {
