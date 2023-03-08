@@ -113,13 +113,11 @@ router.get('/pipe-report', async (req, res) => {
             },
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
             ignoreDefaultArgs: ['--disable-extensions'],
-            headless: true,
+            headless: false,
           };
         
         let browser = await puppeteer.launch(options);
         let page = await browser.newPage();
-
-        console.log("Open Browser")
   
         const client = await page.target().createCDPSession()
         await client.send('Page.setDownloadBehavior', {
@@ -128,7 +126,6 @@ router.get('/pipe-report', async (req, res) => {
         })
         
           await page.goto("https://app.pipefy.com/") 
-          console.log("Open Pipefy")
           await page.waitForSelector(".auth0-lock-submit")   
           await delay(2000) 
           var usernameInput = await page.$("input[name='username']");
@@ -156,13 +153,10 @@ router.get('/pipe-report', async (req, res) => {
   
           var exportButton = await page.$("button[aria-label='Exportar']");
           await exportButton.click()   
-          console.log("Login OK")
           
-          await delay(1000)
+          await delay(10000)
   
           browser.close()
-
-          console.log("Browser close")
 
           res.send("Relatório do database exportado com sucesso!")
           res.status(200)
