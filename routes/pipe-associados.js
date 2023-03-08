@@ -130,7 +130,7 @@ router.get('/pipe-report', async (req, res) => {
         console.log("Abrindo Pipefy")
           await page.goto("https://app.pipefy.com/") 
           await page.waitForSelector(".auth0-lock-submit")   
-          await delay(2000) 
+          await delay(3000) 
           var usernameInput = await page.$("input[name='username']");
           var passwordInput = await page.$("input[name='password']");
   
