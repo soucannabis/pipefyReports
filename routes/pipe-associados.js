@@ -122,7 +122,7 @@ router.get('/pipe-report', async (req, res) => {
         const client = await page.target().createCDPSession()
         await client.send('Page.setDownloadBehavior', {
          behavior: 'allow',
-        downloadPath: __dirname,
+        downloadPath: "/",
         })
         
           await page.goto("https://app.pipefy.com/") 
