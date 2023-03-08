@@ -124,7 +124,7 @@ router.get('/pipe-report', async (req, res) => {
         const client = await page.target().createCDPSession()
         await client.send('Page.setDownloadBehavior', {
          behavior: 'allow',
-        downloadPath: "/",
+        downloadPath: __dirname,
         })
        
         console.log("Abrindo Pipefy")
