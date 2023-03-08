@@ -158,9 +158,11 @@ router.get('/pipe-report', async (req, res) => {
           await exportButton.click()   
           console.log("Login OK")
           
-          await delay(10000)
+          await delay(1000)
   
           browser.close()
+
+          console.log("Browser close")
 
           res.send("Relatório do database exportado com sucesso!")
           res.status(200)
