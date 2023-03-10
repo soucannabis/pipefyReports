@@ -6,6 +6,9 @@ const https = require('https');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser')
+const multer = require('multer');
+
+
 
 router.get('/novo-relatorio', async (req, res) => {
     var idReport = ''
@@ -80,7 +83,7 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {   
-  var ano = new Date().getFullYear()
+ /* var ano = new Date().getFullYear()
   var mes = new Date().getMonth()
   mes = mes+1
   var dia = new Date().getDate()
@@ -88,17 +91,43 @@ router.get('/', async (req, res) => {
   if(dia <= 9){dia = "0"+dia}
 
   var date = dia + "-" + mes + "-" + ano
-  const xlsx = __dirname+"/novo_relatório_"+date+".xlsx";
-   res.download(xlsx)
+  const xlsx = __dirname+"/novo_relatório_"+date+".xlsx";*/
+
+  res.download(__dirname+"/uploads/relatorio.xlsx")
+
+//   res.download(xlsx)
 
 })
 
-router.get('/database-report', async (req, res) => {    
+router.get('/pipe-report', async (req, res) => {    
   const xlsx = `relatorio-associados.xlsx`;
    res.download(xlsx)
 
 })
 
+const storage = multer.diskStorage({
+  destination: function(req,file,cb){
+    cb(null, "routes/uploads/")
+  },
+  filename: function(req,file,cb){
+    cb(null, "relatorio.xlsx")
+  }
+})
+
+const upload = multer({storage}); // define o diretório onde os arquivos serão armazenados
+
+router.post('/upload', upload.single('arquivo'), (req, res) => {
+  res.send('Arquivo enviado com sucesso!');
+});
+
+router.get('/upload', async (req, res) => {    
+  res.send('<form action="upload" method="POST" enctype="multipart/form-data"><input type="file" name="arquivo"><button type="submit">Enviar</button></form>')
+
+})
+
+
+
+/*
 router.get('/pipe-report', async (req, res) => {  
 
   res.status(200)
@@ -180,6 +209,6 @@ router.get('/pipe-report', async (req, res) => {
   
   app()
 
-})
+})*/
 
 module.exports = router
