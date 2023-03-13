@@ -9,12 +9,12 @@ api.use(express.urlencoded({
 
 
 const pipePedidos = require("./routes/pipe-pedidos")
-const pipeLiga = require("./routes/pipe-liga")
+const pipeLiga = require("./routes/liga")
 const pipeAssociados = require("./routes/pipe-associados")
 const pipeServicos = require("./routes/pipe-servicos")
 
 api.use("/pipe-pedidos", pipePedidos)
-api.use("/pipe-liga", pipeLiga)
+api.use("/liga", pipeLiga)
 api.use("/pipe-associados", pipeAssociados)
 api.use("/pipe-servicos", pipeServicos)
 
