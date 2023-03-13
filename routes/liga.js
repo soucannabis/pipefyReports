@@ -13,7 +13,7 @@ router.get('/database', async (req, res) => {
 })
 
 router.get('/pipe', async (req, res) => {   
-  res.download(__dirname+"/relatorio-liga.xlsx")
+  res.download("relatorio-liga.xlsx")
 })
 
 router.get('/novo-relatorio', async (req, res) => {
