@@ -11,8 +11,8 @@ const multer = require('multer');
 router.get('/novo-relatorio', async (req, res) => {
   var idReport = ''
   var urlReport = ''
-  var pipeId = 302420297
-  var pipeReporId = 300427414
+  var pipeId = 303430071
+  var pipeReporId = 300530760
 
  optionsPipe = {
       method: 'POST',
@@ -62,7 +62,7 @@ router.get('/novo-relatorio', async (req, res) => {
       console.log(error);
     });
 
-    file = fs.createWriteStream("relatorio-liga.xlsx");
+    file = fs.createWriteStream("relatorio-est04.xlsx");
    
       https.get(urlReport,  function(response) {
         response.pipe(file);
@@ -81,7 +81,7 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {    
-  const xlsx = `relatorio-liga.xlsx`;
+  const xlsx = `relatorio-est04.xlsx`;
   res.download(xlsx)
 
 })
