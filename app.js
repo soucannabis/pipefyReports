@@ -10,7 +10,7 @@ api.use(express.urlencoded({
 
 const pipePedidos = require("./routes/pipe-pedidos")
 const pipeLiga = require("./routes/liga")
-const pipeAssociados = require("./routes/pipe-associados")
+//const pipeAssociados = require("./routes/pipe-associados")
 const pipeServicos = require("./routes/pipe-servicos")
 const est01 = require("./routes/est01")
 const est02 = require("./routes/est02")
@@ -19,7 +19,7 @@ const est04 = require("./routes/est04")
 
 api.use("/pipe-pedidos", pipePedidos)
 api.use("/liga", pipeLiga)
-api.use("/pipe-associados", pipeAssociados)
+//api.use("/pipe-associados", pipeAssociados)
 api.use("/pipe-servicos", pipeServicos)
 api.use("/estoque/est01", est01)
 api.use("/estoque/est02", est02)
