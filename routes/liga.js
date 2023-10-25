@@ -81,9 +81,28 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {    
-  const xlsx = `relatorio-liga.xlsx`;
+  const xlsx = `relatorio.xlsx`;
   res.download(xlsx)
 
+})
+
+const storage = multer.diskStorage({
+  destination: function(req,file,cb){
+    cb(null, "routes/uploads/pipe-liga")
+  },
+  filename: function(req,file,cb){
+    cb(null, "relatorio.xlsx")
+  }
+})
+
+const upload = multer({storage}); 
+
+router.post('/upload', upload.single('arquivo'), (req, res) => {
+  res.send('Arquivo enviado com sucesso!');
+});
+
+router.get('/upload', async (req, res) => {    
+  res.send('<form action="upload" method="POST" enctype="multipart/form-data"><input type="file" name="arquivo"><button type="submit">Enviar</button></form>')
 })
 
 module.exports = router
