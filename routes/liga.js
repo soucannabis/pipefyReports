@@ -81,8 +81,7 @@ router.get('/novo-relatorio', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {    
-  const xlsx = `relatorio.xlsx`;
-  res.download(xlsx)
+  res.download(__dirname+"/uploads/pipe-liga/relatorio.xlsx")
 
 })
 
