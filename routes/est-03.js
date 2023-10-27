@@ -74,9 +74,7 @@ router.get('/novo-relatorio', async (req, res) => {
             console.log()
         });
       });
-      res.send("<h4>Relatório criado com sucessso!</h4>")
-
-      res.status(200).end()
+      res.status(200).send("<h4>Relatório criado com sucessso!</h4>")
  
 });
 

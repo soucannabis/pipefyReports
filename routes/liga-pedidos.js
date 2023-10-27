@@ -4,10 +4,10 @@ const multer = require('multer');
 const createReport = require('./createReport')
 const path = require('path');
 
-const archiveName = 'relatorio-pipe-servicos.xlsx'
+const archiveName = 'relatorio-liga-pedidos.xlsx'
 
 router.get('/novo-relatorio', async (req, res) => {
-  const report = createReport(301597137, 300427412)
+  const report = createReport(302420297, 300427414)
   res.send("<h4>Relatório criado com sucessso!</h4>").status(200)
 
 });
@@ -37,5 +37,3 @@ router.get('/upload', async (req, res) => {
 })
 
 module.exports = router
-
-
