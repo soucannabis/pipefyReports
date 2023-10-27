@@ -4,9 +4,7 @@ const router = express.Router()
 const fs = require('fs');
 const https = require('https');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
-const puppeteer = require('puppeteer');
-const bodyParser = require('body-parser')
-const multer = require('multer');
+
 
 router.get('/novo-relatorio', async (req, res) => {
   var idReport = ''
