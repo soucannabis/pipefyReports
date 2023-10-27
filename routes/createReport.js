@@ -5,7 +5,7 @@ const https = require('https');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 
-async function createReport(pipeId, pipeReporId){
+async function createReport(pipeId, pipeReporId,archiveName){
 
     optionsPipe = {
          method: 'POST',
@@ -55,7 +55,7 @@ async function createReport(pipeId, pipeReporId){
          console.log(error);
        });
    
-       file = fs.createWriteStream("relatorio-liga.xlsx");
+       file = fs.createWriteStream(archiveName);
       
          https.get(urlReport,  function(response) {
            response.pipe(file);
@@ -67,6 +67,8 @@ async function createReport(pipeId, pipeReporId){
                console.log()
            });
          });
+
+        
 
          return urlReport
    

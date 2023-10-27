@@ -3,11 +3,12 @@ const router = express.Router()
 const multer = require('multer');
 const createReport = require('./createReport')
 const path = require('path');
-
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const archiveName = 'relatorio-liga-pedidos.xlsx'
 
 router.get('/novo-relatorio', async (req, res) => {
-  const report = createReport(302420297, 300427414)
+  const report = createReport(302420297, 300427414,archiveName)
+  await delay(10000)
   res.send("<h4>Relatório criado com sucessso!</h4>").status(200)
 
 });
