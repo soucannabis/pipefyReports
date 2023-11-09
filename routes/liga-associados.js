@@ -24,10 +24,16 @@ const storage = multer.diskStorage({
     cb(null, dirname[0])
   },
   filename: function (req, file, cb) {
-    cb(null, archiveName)
+    cb(null, "relatorio-database-liga.xlsx")
   }
 })
 const upload = multer({ storage });
+
+
+router.get('/database', async (req, res) => {
+  res.download("relatorio-database-liga.xlsx")
+})
+
 
 router.post('/upload', upload.single('arquivo'), (req, res) => {
   res.send('Arquivo enviado com sucesso!');
