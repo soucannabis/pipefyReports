@@ -17,6 +17,10 @@ router.get('/', async (req, res) => {
   res.download(archiveName)
 })
 
+router.get('/database', async (req, res) => {
+  res.download("relatorio-database.xlsx")
+})
+
 var dirname = __dirname.toString()
 dirname = dirname.split("\\routes")
 const storage = multer.diskStorage({
@@ -24,7 +28,7 @@ const storage = multer.diskStorage({
     cb(null, dirname[0])
   },
   filename: function (req, file, cb) {
-    cb(null, archiveName)
+    cb(null, "relatorio-database.xlsx")
   }
 })
 const upload = multer({ storage });
