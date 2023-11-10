@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
 })
 
 var dirname = __dirname.toString()
-dirname = dirname.split("\\routes")
+dirname = dirname.split("/routes")
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, dirname[0])
