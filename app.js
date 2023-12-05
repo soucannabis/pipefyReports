@@ -16,6 +16,7 @@ const est01 = require("./routes/est-01")
 const est02 = require("./routes/est-02")
 const est03 = require("./routes/est-03")
 const est04 = require("./routes/est-04")
+const est05 = require("./routes/est-05")
 
 api.use("/pipe-pedidos", pipePedidos)
 api.use("/liga", pipeLigaPedidos)
@@ -26,8 +27,8 @@ api.use("/estoque/est01", est01)
 api.use("/estoque/est02", est02)
 api.use("/estoque/est03", est03)
 api.use("/estoque/est04", est04)
+api.use("/estoque/est05", est05)
 
-  api.listen(process.env.PORT || 3000, () => {
-      console.log('API RUN!');
-    });
-  
+api.listen(process.env.PORT || 3000, () => {
+  console.log('API RUN!');
+});
