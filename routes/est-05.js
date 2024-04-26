@@ -9,7 +9,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 router.get('/novo-relatorio', async (req, res) => {
   var idReport = ''
   var urlReport = ''
-  var pipeId = 303430071
+  var pipeId = 303588138
   var pipeReporId = 300572455
 
  optionsPipe = {
